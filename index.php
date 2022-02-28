@@ -28,7 +28,7 @@
                 <a class="board" href="tech.php">/tech/&nbsp;&nbsp;&nbsp;&nbsp;- Technology</a>
                 <a class="board" href="comix.php">/comix/ &nbsp;&nbsp;- Comics</a>
                 <a class="board" href="music.php">/mu/ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Music</a>
-                <a class="board" href="lit.php">/lit/ &nbsp;&nbsp;&nbsp;&nbsp;- Literature</a>
+                <a class="board" href="tv.php">/lit/ &nbsp;&nbsp;&nbsp;&nbsp;- Television & Film</a>
                 <a class="board" href="videogames.php">/v/ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Video Games</a>
             </div>
             
