@@ -9,8 +9,8 @@ img {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 25%;
-    height: 25%;
+    width: min-content;
+    height: min-content;
     padding-bottom: 15px
 }
 
@@ -70,4 +70,10 @@ a:hover{
     margin: 20px;
     line-height: 1.5;
     columns: 2
+}
+
+.endpage{
+    font-size: small;
+    text-align: center;
+    margin-top: 200px;
 }
