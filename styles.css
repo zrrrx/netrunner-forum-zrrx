@@ -1,0 +1,73 @@
+body{
+    background-color: #000;
+    font-family: "Lucida Console";
+    margin: 0px;
+    color: #6b6b6b;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 25%;
+    height: 25%;
+    padding-bottom: 15px
+}
+
+div {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.text{
+    width: fit-content;
+    max-width: 568px;
+    height: auto;
+    margin: 0 auto;
+    left: -230px;
+    position: relative;
+}
+
+.boards-list-font{
+    font-size: 20px;
+}
+
+a {
+    font-family: "Lucida Console";
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    margin: 0 auto;
+    font-size: 25px;
+}
+
+a:hover{
+    text-decoration: underline;
+    color: #fff;
+}
+
+.board{
+    color: #6b6b6b;
+}
+
+#maincontainer {
+    width: 500px;
+    border-radius: 25px;
+    border: 2px solid #fff;
+    max-width: 568px;
+    height: auto;
+    margin: 0 auto;
+    position: relative;
+    padding: 20px
+}
+
+#boardcontainer{
+    width: fit-content;
+}
+
+#index {
+    margin: 20px;
+    line-height: 1.5;
+    columns: 2
+}
