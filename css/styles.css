@@ -53,8 +53,8 @@ a:hover{
 
 #maincontainer {
     width: 500px;
-    border-radius: 25px;
-    border: 2px solid #fff;
+    border-radius: 20px;
+    border: 4.5px outset #fff;
     max-width: 568px;
     height: auto;
     margin: 0 auto;
