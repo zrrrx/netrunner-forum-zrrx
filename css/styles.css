@@ -62,11 +62,11 @@ a:hover{
     padding: 20px
 }
 
-#boardcontainer{
+.boardcontainer{
     width: fit-content;
 }
 
-#index {
+.index {
     margin: 20px;
     line-height: 1.5;
     columns: 2
@@ -76,4 +76,8 @@ a:hover{
     font-size: small;
     text-align: center;
     margin-top: 200px;
+}
+
+.title{
+    border: solid aqua;
 }
