@@ -16,15 +16,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="..\css\styles.css">
+    <link rel="stylesheet" type="text/css" href="..\css\boardstyles.css">
     <title>NetRunner - Forum</title>
 </head>
 <body>
 
 
-    <h1><a href="../index.php">NetRunner - Home</a></h1>
+    <div class="header-bar">
+        <h2><a href="../index.php">NetRunner - Home</a></h2>
+    </div>
     
-    <div>
+    <div class="banner">
+        <img src="..\assets\progbanner.jpeg">
+    </div>
+
+    <div id="threadcontainer">
         <form>
             <table>
                 <tbody>
