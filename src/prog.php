@@ -20,6 +20,10 @@
     <title>NetRunner - Forum</title>
 </head>
 <body>
+
+
+    <h1><a href="../index.php">NetRunner - Home</a></h1>
+    
     <div>
         <form>
             <table>
