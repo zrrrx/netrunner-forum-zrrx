@@ -9,9 +9,10 @@
 </head>
 <body>
 
-    <div class="title">
-        <h2>NetRunner Forums</h2>
-    </div>
+    <ul style="list-style: none;">
+        <li><a href="#">NetRunner - Forums</a></li>
+        <li style = "float:right"><a href="src\login.php">Login</a></li>
+    </ul>
 
     <div class="banner">
         <img src="assets\computerbanner.gif" alt="Markup element gif">
