@@ -16,6 +16,10 @@ a:hover{
     color: #fff;
 }
 
+.threadposition{
+    margin-top: 12.5%;
+}
+
 #threadcontainer{
     width: 450px;
     border: 2px solid #fff;
@@ -24,6 +28,7 @@ a:hover{
     margin: 0 auto;
     position: relative;
     padding: 20px;
+
 }
 
 .header-bar{
@@ -32,11 +37,3 @@ a:hover{
     border-left: none;
     border-right: none;
 }
-
-.banner{
-    margin-top: 50px;
-    margin-bottom: 50px;
-    text-align: center;
-    
-}
-
