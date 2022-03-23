@@ -15,7 +15,7 @@
     require('connection.php');
 
     //Code to show all current threads
-    $showQuery = "SELECT * FROM threads";
+    $showQuery = "SELECT * FROM threads WHERE category = 'prog'";
 
     $showStatement = $db->prepare($showQuery);
 
@@ -29,6 +29,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="..\css\boardstyles.css">
+    
     <title>NetRunner - Forum</title>
 </head>
 <body>
@@ -50,12 +51,30 @@
         <?php if($showStatement->rowCount() === 0): ?>
             <p>There are currently no threads on this board!</p>
         <?php else: ?>
-            <?php while($row = $showStatement->fetch()): ?>
-                <div id="threadcontainer">
-                    <header><?= $row['title'] ?></header>
-                    <p><?= $row['content']?></p>
-                </div>
-            <?php endwhile ?>
+            
+            <section class="container">
+                <?php while($row = $showStatement->fetch()): ?>
+                    <div class="card">
+                        <div class="threadimage-container">
+                            <img src="..\assets\notavailable.png">
+                        </div>
+                        <div class="content">
+                            <h2 style="color: aqua;"><?= $row['title'] ?></h2>
+                            <a href="<?="edit.php?postId={$row['postId']}"?>">Edit</a>
+                            <p>
+                                <?php if (strlen($row['content']) < 200): ?>
+                                    <p><?=$row['content']?></p>
+                                <?php else: ?>
+                                    <p><?=substr($row['content'], 0, 200)?>...</p>
+                                    
+                                <?php endif ?>
+                            </p>
+                            <br>
+                            <a href="#">Read Full Post...</a>
+                        </div>
+                    </div>
+                <?php endwhile ?>
+            </section>
 
         <?php endif ?>
     </div>

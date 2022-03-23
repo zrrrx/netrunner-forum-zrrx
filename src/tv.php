@@ -1,4 +1,6 @@
 <?php
+
+    //obsolete captcha function - will remove
     function generateRandomString($length = 5) {
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $charactersLength = strlen($characters);
@@ -8,6 +10,16 @@
         }
         return $randomString;
     }
+
+    //gets connection to db
+    require('connection.php');
+
+    //Code to show all current threads
+    $showQuery = "SELECT * FROM threads WHERE category = 'tv'";
+
+    $showStatement = $db->prepare($showQuery);
+
+    $showStatement->execute();
 ?>
 
 <!DOCTYPE html>
@@ -17,6 +29,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="..\css\boardstyles.css">
+    
     <title>NetRunner - Forum</title>
 </head>
 <body>
@@ -30,46 +43,40 @@
         <img src="..\assets\filmbanner.jpg">
     </div>
 
-    <div id="threadcontainer">
-        <form>
-            <table>
-                <tbody>
-                    <tr>
-                        <th>Name</th>
-                        <td><input type="text" name="name" size="25" maxlength="35" autocomplete="off"></td>
-                    </tr>
-                    <tr>
-                        <th>Subject</th>
-                        <td>
-                            <input style="float:left;" type="text" name="subject" size="25" maxlength="100" autocomplete="off">
-                            <input style="margin-left:2px;" type="submit" name="post" value="Post">
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Comment</th>
-                        <td>
-                            <textarea name="body" id="body" rows="5" cols="35"></textarea>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            File
-                        </th>
-                        <td>
-                            <input type="file" name="file" id="upload_file" style="display: block;">
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            Captcha
-                        </th>
-                        <td>
-                            <input type="text" name="captcha" maxlength="5" autocomplete="off">&nbsp;<span><?= generateRandomString() ?></span>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </form>
+    <div class="banner">
+        <h3><a href="insertTv.php" style="text-decoration:none;">[ Create Thread ]</a></h3>
+    </div>
+
+    <div id="catalog">
+        <?php if($showStatement->rowCount() === 0): ?>
+            <p>There are currently no threads on this board!</p>
+        <?php else: ?>
+            
+            <section class="container">
+                <?php while($row = $showStatement->fetch()): ?>
+                    <div class="card">
+                        <div class="threadimage-container">
+                            <img src="..\assets\notavailable.png">
+                        </div>
+                        <div class="content">
+                            <h2 style="color: aqua;"><?= $row['title'] ?></h2>
+                            <a href="<?="edit.php?postId={$row['postId']}"?>">Edit</a>
+                            <p>
+                                <?php if (strlen($row['content']) < 200): ?>
+                                    <p><?=$row['content']?></p>
+                                <?php else: ?>
+                                    <p><?=substr($row['content'], 0, 200)?>...</p>
+                                    
+                                <?php endif ?>
+                            </p>
+                            <br>
+                            <a href="#">Read Full Post...</a>
+                        </div>
+                    </div>
+                <?php endwhile ?>
+            </section>
+
+        <?php endif ?>
     </div>
 </body>
 </html>
