@@ -21,7 +21,7 @@
 
     $title = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     $content = filter_input(INPUT_POST, 'content', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-    $category = "prog";
+    $category = "tv";
 
     if(strlen($title) <= 1 || strlen($content <= 1)){
         $error == true;
@@ -34,7 +34,7 @@
         $statement->bindValue(':category', $category);
 
         $statement->execute();
-        header('location: prog.php');
+        header('location: tv.php');
         exit();
         
     }
@@ -52,7 +52,7 @@
 <body>
 
     <div class="header-bar">
-        <h2><a href="prog.php"><< Back</a></h2>
+        <h2><a href="tv.php"><< Back</a></h2>
     </div>
 
     <div class="threadposition">
