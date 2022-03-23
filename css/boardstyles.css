@@ -16,14 +16,39 @@ a:hover{
     color: #fff;
 }
 
-#threadcontainer{
-    width: 450px;
-    border: 2px solid #fff;
-    max-width: 568px;
+.container{
+    display: flex;
+    justify-content: center;
+}
+
+.card{
+    border-radius: 10px;
+    background: #000;
+    border: 5px solid #6b6b6b;
+    color: #fff;
+    width: 300px;
     height: auto;
-    margin: 0 auto;
-    position: relative;
-    padding: 20px;
+    margin: 0px auto;
+}
+
+.card img{
+    border: 5px solid #555; 
+    height: 150px;
+    width: 150px;
+    margin-top: 10px;
+}
+
+.threadimage-container{
+    text-align: center;
+    width: 300px;
+    height: 175px;
+}
+
+.content{
+    text-align: center;
+    width: 300px;
+    height: auto;
+    word-wrap: break-word;
 }
 
 .header-bar{
