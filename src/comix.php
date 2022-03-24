@@ -62,10 +62,10 @@
                             <h2 style="color: #787cb5;"><?= $row['title'] ?></h2>
                             <a href="<?="edit.php?postId={$row['postId']}"?>">Edit</a>
                             <p>
-                                <?php if (strlen($row['content']) < 200): ?>
+                                <?php if (strlen($row['content']) < 100): ?>
                                     <p><?=$row['content']?></p>
                                 <?php else: ?>
-                                    <p><?=substr($row['content'], 0, 200)?>...</p>
+                                    <p><?=substr($row['content'], 0, 100)?>...</p>
                                     
                                 <?php endif ?>
                             </p>
