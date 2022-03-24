@@ -70,7 +70,7 @@
                                 <?php endif ?>
                             </p>
                             <br>
-                            <a href="#">Read Full Post...</a>
+                            <a href=<?= "show.php?postId=" . $row['postId'] ?>>Read Full Post...</a>
                         </div>
                     </div>
                 <?php endwhile ?>

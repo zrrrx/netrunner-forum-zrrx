@@ -59,7 +59,7 @@
                             <img src="..\assets\notavailable.png">
                         </div>
                         <div class="content">
-                            <h2 style="color: aqua;"><?= $row['title'] ?></h2>
+                            <h2 style="color: red;"><?= $row['title'] ?></h2>
                             <a href="<?="edit.php?postId={$row['postId']}"?>">Edit</a>
                             <p>
                                 <?php if (strlen($row['content']) < 200): ?>
@@ -70,7 +70,7 @@
                                 <?php endif ?>
                             </p>
                             <br>
-                            <a href="#">Read Full Post...</a>
+                            <a href=<?= "show.php?postId=" . $row['postId'] ?>>Read Full Post...</a>
                         </div>
                     </div>
                 <?php endwhile ?>

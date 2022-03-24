@@ -32,7 +32,7 @@
         $statement->bindValue(':content', $content);
         $statement->bindValue(':id', $postId, PDO::PARAM_INT);
         $statement->execute();
-        header('location: prog.php');
+        header('Location: ../index.php');
         exit();
     }
     elseif ($_POST['action'] == 'Delete') 
@@ -41,7 +41,7 @@
         $statement = $db->prepare($query);
         $statement->bindValue(':id', $postId);
         $statement->execute();
-        header('location: prog.php');
+        header('Location: ../index.php');
         exit();
     }
 ?>

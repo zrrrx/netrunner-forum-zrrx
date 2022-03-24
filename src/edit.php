@@ -36,12 +36,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Blue Bog Blog - Editing <?=$row['title']?></title>
+    <title>NetRunner - Editing <?=$row['title']?></title>
     <link rel="stylesheet" type="text/css" href="..\css\insertstyles.css">
 </head>
 <body>
     <header>
-        <h1><a id="title" href="prog.php"><< Back</a></h1>
+        <h1><a id="title" href="javascript:history.back()"><< Back</a></h1>
     </header>
     
     <div class="threadposition">

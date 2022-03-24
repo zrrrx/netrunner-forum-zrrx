@@ -74,7 +74,7 @@
                         <tr>
                             <th>Comment</th>
                             <td>
-                                <textarea name="content" id="content" rows="5" cols="35"></textarea>
+                                <textarea name="content" id="content" rows="5" cols="35" maxlength="200"></textarea>
                             </td>
                         </tr>
                         <tr>
