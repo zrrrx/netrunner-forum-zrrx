@@ -34,19 +34,21 @@
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
     <title>NetRunner - Editing <?=$row['title']?></title>
-    <link rel="stylesheet" type="text/css" href="..\css\insertstyles.css">
+    <link rel="stylesheet" type="text/css" href="../css/insertstyles.css">
 </head>
+
 <body>
     <header>
-        <h1><a id="title" href="javascript:history.back()"><< Back</a></h1>
+        <h1><a href="javascript:history.back()">&lt;&lt; Back</a></h1>
     </header>
-    
+
     <div class="threadposition">
         <div id="threadcontainer">
-            <form method="post" action="<?= "update.php?postId={$row['postId']}" ?>">
+            <form method="post" action="<?= "update.php?postId={$row['postId']}" ?>" onsubmit="return confirm('Are you sure you want to make these changes?');">
                 <table>
                     <tbody>
                         <tr>
@@ -56,7 +58,8 @@
                         <tr>
                             <th>Subject</th>
                             <td>
-                                <input style="float:left;" type="text" name="title" id="title" size="25" maxlength="100" autocomplete="off" value="<?= $row['title']?>">
+                                <input style="float:left;" type="text" name="title" id="title" size="25" maxlength="100"
+                                    autocomplete="off" value="<?= $row['title']?>">
                                 <input style="margin-left:2px;" type="submit" name="action" value="Edit">
                                 <input style="margin-left:2px;" type="submit" name="action" value="Delete">
                             </td>
@@ -80,7 +83,8 @@
                                 Captcha
                             </th>
                             <td>
-                                <input type="text" name="captcha" maxlength="5" autocomplete="off">&nbsp;<span><?= generateRandomString() ?></span>
+                                <input type="text" name="captcha" maxlength="5"
+                                    autocomplete="off">&nbsp;<span><?= generateRandomString() ?></span>
                             </td>
                         </tr>
                     </tbody>
@@ -88,7 +92,6 @@
             </form>
         </div>
     </div>
-
-</form>
 </body>
-</html> 
+
+</html>
