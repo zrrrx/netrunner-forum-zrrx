@@ -18,44 +18,42 @@
 ?>
 
 <!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <title> <?= $row['title'] ?></title>
-    <link rel="stylesheet" type="text/css" href="..\css\fullpoststyles.css">    
+    <link rel="stylesheet" type="text/css" href="../css/fullpoststyles.css">
 </head>
-<html>
-<body>
+    <body>
 
     <div class="header-bar">
-        <h2><a href="javascript:history.back()"><< Back</a></h2>
-    </div>
-
-    <?php if($postId): ?>
-        <div class="post-container">
+        <h2><a href="javascript:history.back()">
+                &lt;&lt; Back</a> </h2>
+    </div> <?php if($postId): ?> <div class="post-container">
+        <div>
             <div>
-                <div>
-                    <div class="title-container">
-                        <h2><?= $row['title']?></h2>
+                <div class="title-container">
+                    <h2><?= $row['title']?></h2>
+                    <p>
+                        <small>Posted: <?= $row['date'] ?></small>
+                    </p>
+                </div>
+
+                <div class="content-container">
+
+                    <div class="content">
+                        <img src="../assets/notavailable.png" alt="No image available" height="250" width="250">
                         <p>
-                            <small>Posted: <?= $row['date'] ?></small>
+                            <?= $row['content'] ?>
                         </p>
                     </div>
-                    
-                    <div class="content-container">
-
-                        <div class="content">
-                            <img src="../assets/notavailable.png" height="250px" width="250px">
-                            <p> 
-                                <?= $row['content'] ?>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="reply-container">
-                        <h3><a href="#">Reply</a></h3>
-                    </div>
+                </div>
+                <div class="reply-container">
+                    <h3><a href="#">Reply</a></h3>
                 </div>
             </div>
         </div>
+    </div>
     <?php endif ?>
-</body>
+    </body>
 </html>

@@ -28,7 +28,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="..\css\boardstyles.css">
+    <link rel="stylesheet" type="text/css" href="../css/boardstyles.css">
     
     <title>NetRunner - Forum</title>
 </head>
@@ -40,7 +40,7 @@
     </div>
     
     <div class="banner">
-        <img src="..\assets\gamebanner.jpg">
+        <img src="../assets/gamebanner.jpg" alt="Video game board banner">
     </div>
 
     <div class="banner">
@@ -56,21 +56,21 @@
                 <?php while($row = $showStatement->fetch()): ?>
                     <div class="card">
                         <div class="threadimage-container">
-                            <img src="..\assets\notavailable.png">
+                            <img src="../assets/notavailable.png" alt="No picture available">
                         </div>
                         <div class="content">
                             <h2 style="color: aqua;"><?= $row['title'] ?></h2>
                             <a href="<?="edit.php?postId={$row['postId']}"?>">Edit</a>
                             <p>
                                 <?php if (strlen($row['content']) < 100): ?>
-                                    <p><?=$row['content']?></p>
+                                    <?=$row['content']?>
                                 <?php else: ?>
                                     <p><?=substr($row['content'], 0, 100)?>...</p>
                                     
                                 <?php endif ?>
                             </p>
                             <br>
-                            <a href=<?= "show.php?postId=" . $row['postId'] ?>>Read Full Post...</a>
+                            <a href="<?="show.php?postId={$row['postId']}"?>">Read Full Post...</a>
                         </div>
                     </div>
                 <?php endwhile ?>

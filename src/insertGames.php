@@ -42,17 +42,19 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="..\css\insertstyles.css">
+    <link rel="stylesheet" type="text/css" href="../css/insertstyles.css">
     <title>NetRunner - Forum</title>
 </head>
+
 <body>
 
     <div class="header-bar">
-        <h2><a href="videogames.php"><< Back</a></h2>
+        <h2><a href="videogames.php">&lt;&lt; Back</a></h2>
     </div>
 
     <div class="threadposition">
@@ -67,7 +69,8 @@
                         <tr>
                             <th>Subject</th>
                             <td>
-                                <input style="float:left;" type="text" name="title" id="title" size="25" maxlength="100" autocomplete="off">
+                                <input style="float:left;" type="text" name="title" id="title" size="25" maxlength="100"
+                                    autocomplete="off">
                                 <input style="margin-left:2px;" type="submit" name="post" value="Post">
                             </td>
                         </tr>
@@ -90,7 +93,8 @@
                                 Captcha
                             </th>
                             <td>
-                                <input type="text" name="captcha" maxlength="5" autocomplete="off">&nbsp;<span><?= generateRandomString() ?></span>
+                                <input type="text" name="captcha" maxlength="5"
+                                    autocomplete="off">&nbsp;<span><?= generateRandomString() ?></span>
                             </td>
                         </tr>
                     </tbody>
@@ -99,4 +103,5 @@
         </div>
     </div>
 </body>
+
 </html>

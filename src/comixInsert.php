@@ -46,13 +46,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="..\css\insertstyles.css">
+    <link rel="stylesheet" type="text/css" href="../css/insertstyles.css">
     <title>NetRunner - Forum</title>
 </head>
 <body>
 
     <div class="header-bar">
-        <h2><a href="comix.php"><< Back</a></h2>
+        <h2><a href="comix.php">&lt;&lt; Back</a></h2>
     </div>
 
     <div class="threadposition">

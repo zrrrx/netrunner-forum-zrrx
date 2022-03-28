@@ -24,23 +24,25 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="..\css\boardstyles.css">
-    
+    <link rel="stylesheet" type="text/css" href="../css/boardstyles.css">
+
     <title>NetRunner - Forum</title>
 </head>
+
 <body>
 
 
     <div class="header-bar">
         <h2><a href="../index.php">NetRunner - Home</a></h2>
     </div>
-    
+
     <div class="banner">
-        <img src="..\assets\mubanner.jpg">
+        <img src="../assets/mubanner.jpg" alt="Music board banner">
     </div>
 
     <div class="banner">
@@ -49,34 +51,35 @@
 
     <div id="catalog">
         <?php if($showStatement->rowCount() === 0): ?>
-            <p>There are currently no threads on this board!</p>
+        <p>There are currently no threads on this board!</p>
         <?php else: ?>
-            
-            <section class="container">
-                <?php while($row = $showStatement->fetch()): ?>
-                    <div class="card">
-                        <div class="threadimage-container">
-                            <img src="..\assets\notavailable.png">
-                        </div>
-                        <div class="content">
-                            <h2 style="color: #9acd32;"><?= $row['title'] ?></h2>
-                            <a href="<?="edit.php?postId={$row['postId']}"?>">Edit</a>
-                            <p>
-                                <?php if (strlen($row['content']) < 100): ?>
-                                    <p><?=$row['content']?></p>
-                                <?php else: ?>
-                                    <p><?=substr($row['content'], 0, 100)?>...</p>
-                                    
-                                <?php endif ?>
-                            </p>
-                            <br>
-                            <a href=<?= "show.php?postId=" . $row['postId'] ?>>Read Full Post...</a>
-                        </div>
-                    </div>
-                <?php endwhile ?>
-            </section>
+
+        <section class="container">
+            <?php while($row = $showStatement->fetch()): ?>
+            <div class="card">
+                <div class="threadimage-container">
+                    <img src="../assets/notavailable.png" alt="No image available">
+                </div>
+                <div class="content">
+                    <h2 style="color: #9acd32;"><?= $row['title'] ?></h2>
+                    <a href="<?="edit.php?postId={$row['postId']}"?>">Edit</a>
+                    <p>
+                        <?php if (strlen($row['content']) < 100): ?>
+                        <?=$row['content']?>
+                        <?php else: ?>
+                        <p><?=substr($row['content'], 0, 100)?>...</p>
+
+                        <?php endif ?>
+                    </p>
+                    <br>
+                    <a href="<?="show.php?postId={$row['postId']}"?>">Read Full Post...</a>
+                </div>
+            </div>
+            <?php endwhile ?>
+        </section>
 
         <?php endif ?>
     </div>
 </body>
+
 </html>

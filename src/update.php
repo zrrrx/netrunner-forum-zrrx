@@ -47,7 +47,7 @@
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <title>NetRunner Forum - Error</title>
     <link rel="stylesheet" type="text/css" href="styles.css" />
