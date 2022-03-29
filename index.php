@@ -15,7 +15,6 @@
 
     <ul style="list-style: none;">
         <li><a href="#">NetRunner - Forums</a></li>
-
         <?php if(isset($_SESSION['sess_user_id'])): ?>
             <li style = "float:right"><a href="src/logout.php" onclick="return confirm('Do you want to logout?');"><?= $_SESSION['sess_user_name'] ?></a></li>
             <?php if($_SESSION['sess_user_name'] == 'admin'): ?>
