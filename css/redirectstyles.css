@@ -1,0 +1,98 @@
+body{
+    background-color: #000;
+    font-family: "Lucida Console";
+    color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+*{
+    box-sizing: padding-box;
+}
+
+a{
+
+    color: #fff;
+}
+
+a:visited{
+    color: #6b6b6b;
+}
+
+a:hover{
+    color: #fff;
+}
+
+form {
+
+    width: 1000px;
+
+    border: 3px solid rgb(78, 78, 78);
+
+    padding: 20px;
+
+    background: rgb(165, 165, 165);
+
+    border-radius: 20px;
+
+}
+
+h2 {
+
+    text-align: center;
+
+    margin-bottom: 40px;
+
+}
+
+input {
+
+    display: block;
+
+    border: 2px solid #ccc;
+
+    width: 95%;
+
+    padding: 10px;
+
+    margin: 10px auto;
+
+    border-radius: 5px;
+
+}
+
+label {
+
+    color: #000;
+
+    font-size: 18px;
+
+    padding: 10px;
+
+}
+
+.error {
+
+   background: #000000;
+
+   color: #810303;
+
+   padding: 10px;
+
+   width: 95%;
+
+   border-radius: 5px;
+
+   margin: 20px auto;
+
+}
+
+h1 {
+
+    text-align: center;
+
+}
+
