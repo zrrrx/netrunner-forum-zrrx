@@ -1,5 +1,7 @@
 <?php
 
+    session_start();
+
     //obsolete captcha function - will remove
     function generateRandomString($length = 5) {
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -45,9 +47,15 @@
         <img src="../assets/filmbanner.jpg" alt="TV and Film board banner">
     </div>
 
-    <div class="banner">
-        <h3><a href="insertTv.php" style="text-decoration:none;">[ Create Thread ]</a></h3>
-    </div>
+    <?php if(isset($_SESSION['sess_user_name'])) : ?>
+        <div class="banner">
+            <h3><a href="insertTv.php" style="text-decoration:none;">[ Create Thread ]</a></h3>
+        </div>
+    <?php else: ?>
+        <div class="banner">
+            <h3><a href="login.php">Login</a> or <a href="register.pphp">Sign-Up</a> to create a new thread!</h3>
+        </div>
+    <?php endif ?>
 
     <div id="catalog">
         <?php if($showStatement->rowCount() === 0): ?>
