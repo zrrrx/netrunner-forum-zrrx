@@ -6,6 +6,8 @@
     $showStatement = $db->prepare($showQuery);
 
     $showStatement->execute();
+
+    $i = 0;
     
 ?>
 
@@ -19,6 +21,7 @@
 <body>
 
     <div class="header-bar">
+        <h2><a style="float:right;" href="register.php"> Add User</a></h2>
         <h2><a href="../index.php">&lt;&lt; Back</a></h2>
     </div>
 
@@ -27,15 +30,15 @@
             <th>Username</th>
             <th>Email</th>
             <th>Edit</th>
-            <th>Delete</th>
         </tr>
         <?php while($row = $showStatement->fetch()): ?>
             <tr>
                 <td><?= $row['user_name'] ?></td>
                 <td><?= $row['user_email'] ?></td>
-                <td><button onclick="window.location.href = '../index.php'">...</button></td>
-                <td><button onclick="window.location.href = '../index.php'">...</button></td>
+                <td><a href="<?="editUser.php?userId={$row['userId']}"?>">Edit</a></td>
             </tr>
+
+            <? $i++ ?>
         <?php endwhile ?>
     </table>
 </body>

@@ -61,7 +61,7 @@ if(isset($_POST['register'])){
 </head>
 
 <body>
-    <h1>Register</h1>
+    <h1 style="color: white;">Register</h1>
     <form action="register.php" method="post">
         <label for="email">Email</label>
         <input type="text" id="email" name="email">
