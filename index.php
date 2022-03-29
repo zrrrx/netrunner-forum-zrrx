@@ -18,6 +18,9 @@
 
         <?php if(isset($_SESSION['sess_user_id'])): ?>
             <li style = "float:right"><a href="src/logout.php" onclick="return confirm('Do you want to logout?');"><?= $_SESSION['sess_user_name'] ?></a></li>
+            <?php if($_SESSION['sess_user_name'] == 'admin'): ?>
+                <li style= "float:right"><a href="src/adminpanel.php">Administrator-Panel</a></li>
+            <?php endif ?>
         <?php else: ?>
             <li style = "float:right"><a href="src/login.php">Login</a></li>
             <li style="float: right;"><a href="src/register.php">Register</a></li>

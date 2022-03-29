@@ -1,0 +1,39 @@
+body{
+    background-color: #000;
+    font-family: "Lucida Console";
+    color: #fff;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+  
+td, th {
+border: 1px solid #dddddd;
+text-align: left;
+padding: 8px;
+}
+  
+tr:nth-child(even) {
+background-color: #414141;
+}
+
+.header-bar{
+    border: 1px solid #fff;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+a{
+    color: #6b6b6b;
+}
+
+a:visited{
+    color: #6b6b6b;
+}
+
+a:hover{
+    color: #fff;
+}
