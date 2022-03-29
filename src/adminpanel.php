@@ -25,12 +25,14 @@
     <table>
         <tr>
             <th>Username</th>
+            <th>Email</th>
             <th>Edit</th>
             <th>Delete</th>
         </tr>
         <?php while($row = $showStatement->fetch()): ?>
             <tr>
                 <td><?= $row['user_name'] ?></td>
+                <td><?= $row['user_email'] ?></td>
                 <td><button onclick="window.location.href = '../index.php'">...</button></td>
                 <td><button onclick="window.location.href = '../index.php'">...</button></td>
             </tr>
