@@ -19,27 +19,30 @@
 </head>
 <html>
 <body>
+    <?php if($_SESSION['admin']): ?>
+        <div class="header-bar">
+            <h2><a style="float:right;" href="adminregister.php"> Add User</a></h2>
+            <h2><a href="../index.php">&lt;&lt; Back</a></h2>
+        </div>
 
-    <div class="header-bar">
-        <h2><a style="float:right;" href="register.php"> Add User</a></h2>
-        <h2><a href="../index.php">&lt;&lt; Back</a></h2>
-    </div>
-
-    <table>
-        <tr>
-            <th>Username</th>
-            <th>Email</th>
-            <th>Edit</th>
-        </tr>
-        <?php while($row = $showStatement->fetch()): ?>
+        <table>
             <tr>
-                <td><?= $row['user_name'] ?></td>
-                <td><?= $row['user_email'] ?></td>
-                <td><a href="<?="editUser.php?userId={$row['userId']}"?>">Edit</a></td>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Edit</th>
             </tr>
+            <?php while($row = $showStatement->fetch()): ?>
+                <tr>
+                    <td><?= $row['user_name'] ?></td>
+                    <td><?= $row['user_email'] ?></td>
+                    <td><a href="<?="editUser.php?userId={$row['userId']}"?>">Edit</a></td>
+                </tr>
 
-            <? $i++ ?>
-        <?php endwhile ?>
-    </table>
+                <? $i++ ?>
+            <?php endwhile ?>
+        </table>
+    <?php else: ?>
+        <?php header("Location: ../index.php")?>
+    <?php endif ?>
 </body>
 </html>
