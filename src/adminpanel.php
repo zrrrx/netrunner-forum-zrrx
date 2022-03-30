@@ -1,4 +1,7 @@
 <?php
+
+    session_start();
+
     require('connection.php');
 
     $showQuery = "SELECT * FROM user_accounts";
@@ -19,7 +22,7 @@
 </head>
 <html>
 <body>
-    <?php if($_SESSION['admin']): ?>
+    <?php if($_SESSION['sess_user_name'] == 'admin'): ?>
         <div class="header-bar">
             <h2><a style="float:right;" href="adminregister.php"> Add User</a></h2>
             <h2><a href="../index.php">&lt;&lt; Back</a></h2>
@@ -42,7 +45,7 @@
             <?php endwhile ?>
         </table>
     <?php else: ?>
-        <?php header("Location: ../index.php")?>
+        <?php header("Location: ../index.php"); ?>
     <?php endif ?>
 </body>
 </html>
