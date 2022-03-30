@@ -57,8 +57,6 @@
         </div>
     <?php endif ?>
 
-    
-
     <div id="catalog">
         <?php if($showStatement->rowCount() === 0): ?>
         <p>There are currently no threads on this board!</p>
@@ -71,6 +69,7 @@
                     <img src="../assets/notavailable.png" alt="no image available">
                 </div>
                 <div class="content">
+                    <h4>Posted by: <?= $row['author']?></h4>
                     <h2 style="color: aqua;"><?= $row['title'] ?></h2>
                     <a href="<?="edit.php?postId={$row['postId']}"?>">Edit</a>
                     <p>

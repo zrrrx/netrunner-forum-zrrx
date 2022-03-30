@@ -11,7 +11,8 @@
         return $randomString;
     }
 
-
+    session_start();
+    
     //gets connection to db
     require('connection.php');
 
@@ -21,17 +22,19 @@
 
     $title = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     $content = filter_input(INPUT_POST, 'content', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    $user = filter_input(INPUT_POST, 'name', FILTER_DEFAULT);
     $category = "tv";
 
     if(strlen($title) <= 1 || strlen($content <= 1)){
         $error == true;
     }
     else{
-        $query = "INSERT INTO threads (title, content, category) VALUES (:title, :content, :category)";
+        $query = "INSERT INTO threads (title, content, category, author) VALUES (:title, :content, :category, :author)";
         $statement = $db->prepare($query);
         $statement->bindValue(':title', $title);
         $statement->bindValue(':content', $content);
         $statement->bindValue(':category', $category);
+        $statement->bindValue(':author', $user);
 
         $statement->execute();
         header('location: tv.php');
@@ -62,11 +65,6 @@
             <form method="post">
                 <table>
                     <tbody>
-                        <tr>
-                            <th>Name</th>
-                            <td><input type="text" name="name" size="25" maxlength="35" autocomplete="off">
-                            </td>
-                        </tr>
                         <tr>
                             <th>Subject</th>
                             <td>
@@ -100,6 +98,7 @@
                         </tr>
                     </tbody>
                 </table>
+                <input  style="visibility:hidden;" type="text" name="name" id="name" size="25" maxlength="35" autocomplete="off" value="<?= $_SESSION['sess_user_name'] ?>">
             </form>
         </div>
     </div>

@@ -67,6 +67,7 @@
                             <img src="../assets/notavailable.png" alt="no image available">
                         </div>
                         <div class="content">
+                            <h4>Posted by: <?= $row['author']?></h4>
                             <h2 style="color: #787cb5;"><?= $row['title'] ?></h2>
                             <a href="<?="edit.php?postId={$row['postId']}"?>">Edit</a>
                             <p>
