@@ -2,9 +2,6 @@
 
 session_start();
 
-/**
- * Include our MySQL connection.
- */
 require('connection.php');
 
 if(isset($_POST['register'])){
