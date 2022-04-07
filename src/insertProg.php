@@ -18,7 +18,7 @@
     //gets connection to db
     require('connection.php');
 
-
+    $image_filename = 'n/a';
 
     $uploaderr = " ";
 
