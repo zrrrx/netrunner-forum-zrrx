@@ -15,6 +15,8 @@
     require('connection.php');
     require('authenticate.php');
     
+
+
     //This validates the posts id to make sure its a valid int, sends you home if it fails.
     if(!filter_input(INPUT_GET, 'postId', FILTER_VALIDATE_INT))
     {
@@ -48,7 +50,7 @@
 
     <div class="threadposition">
         <div id="threadcontainer">
-            <form method="post" action="<?= "update.php?postId={$row['postId']}" ?>" onsubmit="return confirm('Are you sure you want to make these changes?');">
+            <form method="post" enctype="multipart/form-data" action="<?= "update.php?postId={$row['postId']}" ?>" onsubmit="return confirm('Are you sure you want to make these changes?');">
                 <table>
                     <tbody>
                         <tr>
@@ -60,7 +62,7 @@
                             <td>
                                 <input style="float:left;" type="text" name="title" id="title" size="25" maxlength="100"
                                     autocomplete="off" value="<?= $row['title']?>">
-                                <input style="margin-left:2px;" type="submit" name="action" value="Edit">
+                                <input style="margin-left:2px;" type="submit" name="action" value="Update">
                                 <input style="margin-left:2px;" type="submit" name="action" value="Delete">
                             </td>
                         </tr>
@@ -75,7 +77,11 @@
                                 File
                             </th>
                             <td>
-                                <input type="file" name="file" id="upload_file" style="display: block;">
+                                <input type="file" name="image" id="file" style="display: block;">
+                                <?php if(!empty($row['file_name'])): ?>
+                                    <input type="submit" name="action" value="Remove Image" style="display: block;">
+                                <?php endif ?>
+                                
                             </td>
                         </tr>
                         <tr>
