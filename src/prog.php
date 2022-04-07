@@ -66,7 +66,11 @@
             <?php while($row = $showStatement->fetch()): ?>
             <div class="card">
                 <div class="threadimage-container">
-                    <img src="../assets/notavailable.png" alt="no image available">
+                    <?php if(empty($row['file_name'])): ?>
+                        <img src="../assets/notavailable.png" alt="uploaded image">             
+                    <?php else: ?>
+                        <img src="uploads/<?= $row['file_name']?>" alt="uploaded image">
+                    <?php endif ?>
                 </div>
                 <div class="content">
                     <h4>Posted by: <?= $row['author']?></h4>
