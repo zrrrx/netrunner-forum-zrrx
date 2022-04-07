@@ -67,7 +67,9 @@
             <div class="card">
                 <div class="threadimage-container">
                     <?php if(empty($row['file_name'])): ?>
-                        <img src="../assets/notavailable.png" alt="uploaded image">             
+                        <img src="../assets/notavailable.png" alt="uploaded image">
+                    <?php elseif($row['file_name'] == 'n/a'): ?>
+                        <img src="../assets/notavailable.png" alt="uploaded image">                 
                     <?php else: ?>
                         <img src="uploads/<?= $row['file_name']?>" alt="uploaded image">
                     <?php endif ?>
@@ -75,7 +77,9 @@
                 <div class="content">
                     <h4>Posted by: <?= $row['author']?></h4>
                     <h2 style="color: green;"><?= $row['title'] ?></h2>
-                    <a href="<?="edit.php?postId={$row['postId']}"?>">Edit</a>
+                    <?php if($_SESSION['sess_user_name'] == $row['author'] || $_SESSION['sess_user_name'] == 'admin'): ?>
+                        <a href="<?="edit.php?postId={$row['postId']}"?>">Edit</a>
+                    <?php endif ?>
                     <p>
                         <?php if (strlen($row['content']) < 100): ?>
                         <?=$row['content']?>

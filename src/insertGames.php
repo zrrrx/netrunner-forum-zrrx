@@ -16,6 +16,8 @@
     //gets connection to db
     require('connection.php');
 
+    $image_filename = 'n/a';
+
     $uploaderr = " ";
 
     function file_upload_path($original_filename, $upload_subfolder_name = 'uploads') {
