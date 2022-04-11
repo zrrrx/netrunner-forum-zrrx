@@ -2,6 +2,10 @@
 
     session_start();
 
+    if(!isset($_SESSION['sess_user_name'])){
+        $_SESSION['sess_user_name'] = 'anonymous';
+    }
+
     //obsolete captcha function - will remove
     function generateRandomString($length = 5) {
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
