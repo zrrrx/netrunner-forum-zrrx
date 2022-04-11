@@ -11,6 +11,10 @@
     $showStatement->execute();
 
     $i = 0;
+
+    $qr = "SELECT * FROM replies";
+    $stmt = $db->prepare($qr);
+    $stmt->execute();
     
 ?>
 
@@ -39,6 +43,27 @@
                     <td><?= $row['user_name'] ?></td>
                     <td><?= $row['user_email'] ?></td>
                     <td><a href="<?="editUser.php?userId={$row['userId']}"?>">Edit</a></td>
+                </tr>
+
+                <? $i++ ?>
+            <?php endwhile ?>
+        </table>
+        <br>
+        <br>
+        <table>
+            <tr>
+                <th>Reply Id</th>
+                <th>Post Id</th>
+                <th>Author</th>
+                <th>Reply</th>
+            </tr>
+            <?php while($replyRow = $stmt->fetch()): ?>
+                <tr>
+                    <td><?= $replyRow['replyId'] ?></td>
+                    <td><?= $replyRow['postId'] ?></td>
+                    <td><?= $replyRow['author'] ?></td>
+                    <td><?= $replyRow['reply'] ?></td>
+                    <td><a href="<?="deleteReply.php?replyId={$replyRow['replyId']}"?>">Delete</td>
                 </tr>
 
                 <? $i++ ?>
