@@ -52,6 +52,20 @@ a:hover{
     margin: 10px;
 }
 
+.post-replies{
+    color: #363637;
+    background-color: #6b6b6b;
+    border: 2px solid black;
+    border-radius: 4px;
+    width: 400px;
+}
+
+.post-replies h2{
+    color: lightgrey;
+    border-bottom: 3px solid black;
+
+}
+
 .reply-container a:hover{
     color: white;
 }
