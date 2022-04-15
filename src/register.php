@@ -6,8 +6,9 @@ require('connection.php');
 
 if(isset($_POST['register'])){
     
-    $username = !empty($_POST['user_name']) ? trim($_POST['user_name']) : null;
-    $pass = !empty($_POST['password']) ? trim($_POST['password']) : null;
+    
+    $username = filter_input(INPUT_POST, 'user_name', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    $pass = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
     
     $sql = "SELECT COUNT(user_name) AS num FROM user_accounts WHERE user_name = :user_name";

@@ -81,7 +81,9 @@
                 <div class="content">
                     <h4>Posted by: <?= $row['author']?></h4>
                     <h2 style="color: aqua;"><?= $row['title'] ?></h2>
-                    <?php if($_SESSION['sess_user_name'] == $row['author'] || $_SESSION['sess_user_name'] == 'admin'): ?>
+                    <?php if($_SESSION['sess_user_name'] == $row['author'] && $_SESSION['sess_user_name'] != 'anonymous'): ?>
+                        <a href="<?="edit.php?postId={$row['postId']}"?>">Edit</a>
+                    <?php elseif($_SESSION['sess_user_name'] == 'admin'): ?>
                         <a href="<?="edit.php?postId={$row['postId']}"?>">Edit</a>
                     <?php endif ?>
                     <p>

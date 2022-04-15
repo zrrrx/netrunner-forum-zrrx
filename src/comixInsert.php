@@ -62,22 +62,46 @@
     $user = filter_input(INPUT_POST, 'name', FILTER_DEFAULT);
     $category = "comix";
 
-    if(strlen($title) <= 1 || strlen($content <= 1)){
-        $error == true;
-    }
-    else{
-        $query = "INSERT INTO threads (title, content, category, author, file_name) VALUES (:title, :content, :category, :author, :file_name)";
-        $statement = $db->prepare($query);
-        $statement->bindValue(':title', $title);
-        $statement->bindValue(':content', $content);
-        $statement->bindValue(':category', $category);
-        $statement->bindValue(':author', $user);
-        $statement->bindValue(":file_name", $image_filename);
+    if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        if($_SESSION['sess_user_name'] == 'anonymous'){
 
-        $statement->execute();
-        header('location: comix.php');
-        exit();
+            if(strlen($title) <= 1 || strlen($content <= 1)){
+                $error == true;
+            }
+            elseif(isset($_POST['captcha_challenge']) && $_POST['captcha_challenge'] != $_SESSION['captcha_text']){
+                $error == true;
+            }else{
+                $query = "INSERT INTO threads (title, content, category, author, file_name) VALUES (:title, :content, :category, :author, :file_name)";
+                $statement = $db->prepare($query);
+                $statement->bindValue(':title', $title);
+                $statement->bindValue(':content', $content);
+                $statement->bindValue(':category', $category);
+                $statement->bindValue(':author', $user);
+                $statement->bindValue(":file_name", $image_filename);
         
+                $statement->execute();
+                header('location: prog.php');
+                exit();
+            }
+        }
+        else{
+    
+            if(strlen($title) <= 1 || strlen($content <= 1)){
+                $error == true;
+            }else{
+                $query = "INSERT INTO threads (title, content, category, author, file_name) VALUES (:title, :content, :category, :author, :file_name)";
+                $statement = $db->prepare($query);
+                $statement->bindValue(':title', $title);
+                $statement->bindValue(':content', $content);
+                $statement->bindValue(':category', $category);
+                $statement->bindValue(':author', $user);
+                $statement->bindValue(":file_name", $image_filename);
+        
+                $statement->execute();
+                header('location: prog.php');
+                exit();
+            }
+        }
     }
 ?>
 
@@ -122,14 +146,19 @@
                                 <input type="file" name="image" id="upload_file" style="display: block;">
                             </td>
                         </tr>
-                        <tr>
-                            <th>
-                                Captcha
-                            </th>
-                            <td>
-                                <input type="text" name="captcha" maxlength="5" autocomplete="off">&nbsp;<span><?= generateRandomString() ?></span>
-                            </td>
-                        </tr>
+                        <?php if($_SESSION['sess_user_name'] == 'anonymous'): ?>
+                            <tr>
+                                <th>
+                                    Captcha
+                                </th>
+                                <td>
+                                    
+                                    <img src="../src/captcha.php" alt="CAPTCHA" class="captcha-image">
+                                    <br>
+                                    <input type="text" id="captcha" name="captcha_challenge" pattern="[A-Z]{6}">
+                                </td>
+                            </tr>
+                        <?php endif ?>
                     </tbody>
                 </table>
                 <input  style="visibility:hidden;" type="text" name="name" id="name" size="25" maxlength="35" autocomplete="off" value="<?= $_SESSION['sess_user_name'] ?>">

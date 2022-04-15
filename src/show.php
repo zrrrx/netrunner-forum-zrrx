@@ -67,10 +67,12 @@
                 <div class="content-container">
 
                     <div class="content">
-                        <?php if(!empty($row['file_name'])): ?>
-                            <img src="uploads/<?= $row['file_name']?>" alt="uploaded image" height="250" width="250">
+                        <?php if(empty($row['file_name'])): ?>
+                            <img src="../assets/notavailable.png" alt="uploaded image" width="250" height="250">
+                        <?php elseif($row['file_name'] == 'n/a'): ?>
+                            <img src="../assets/notavailable.png" alt="uploaded image" width="250" height="250">                 
                         <?php else: ?>
-                            <img src="../assets/notavailable.png" alt="No image available" height="250" width="250">
+                            <img src="uploads/<?= $row['file_name']?>" alt="uploaded image" width="250" height="250">
                         <?php endif ?>
                         <p>
                             <?= $row['content'] ?>
@@ -102,7 +104,7 @@
             <?php else: ?>
                 <?php while($replyRow = $finalstmt->fetch()): ?>
                         <small>Posted by: <?= $replyRow['author']?></small>
-                        <h2><?= $replyRow['reply']?></h2>
+                        <h3><?= $replyRow['reply']?></h3>
                 <?php endwhile ?>
             <?php endif ?>
         </div>

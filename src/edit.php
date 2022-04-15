@@ -13,7 +13,6 @@
 
 
     require('connection.php');
-    require('authenticate.php');
     
 
 
