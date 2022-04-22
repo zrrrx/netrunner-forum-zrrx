@@ -19,12 +19,13 @@
 ?>
 
 <!DOCTYPE html>
+<html lang=en>
 <head>
     <meta charset="utf-8">
     <title> Admin Panel</title>
     <link rel="stylesheet" href="../css/adminstyles.css" type="text/css">    
 </head>
-<html>
+
 <body>
     <?php if($_SESSION['sess_user_name'] == 'admin'): ?>
         <div class="header-bar">

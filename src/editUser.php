@@ -1,6 +1,5 @@
 <?php
     require('connection.php');
-    require('authenticate.php');
     
     //This validates the posts id to make sure its a valid int, sends you home if it fails.
     if(!filter_input(INPUT_GET, 'userId', FILTER_VALIDATE_INT))
